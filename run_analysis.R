@@ -106,3 +106,8 @@ summarize_call_str <- sprintf("grouped_data_avgs <- summarize(grouped_data%s)", 
 # available in the variable "grouped_data_avgs"
 eval(parse(text = summarize_call_str))
 
+# save the complete tidy dataset as CSV
+write.csv(complete_data, file = "complete_data.csv", row.names = F)
+
+# save the grouped averages summary dataset as CSV
+write.csv(grouped_data_avgs, file = "grouped_averages.csv", row.names = F)
