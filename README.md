@@ -2,7 +2,7 @@
 
 This repository contains a script `run_analysis.R` to create a tidy data set from test and train data of the [Human Activity Recognition Using Smartphones Data Set](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones).
 
-** For an explanation of how the R script works, please take a look in the R script itself -- the source code is completely documented. **
+**For an explanation of how the R script works, please take a look in the R script itself -- the source code is completely documented.**
 
 ## Files of the repository
 
