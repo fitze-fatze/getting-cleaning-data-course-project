@@ -20,7 +20,7 @@ load_sensor_dataset <- function(dataset_type) {
     # load the activity label numbers from a separate file
     label_nums <- read.table(label_nums_file, col.names = "activity")
     
-    # add a subject column by loading this data from the subjects file and binding the only column
+    # load the subject IDs from the subjects file
     subjects_data <- read.table(subjects_file, col.names = "subject")
     
     # bind the following columns: subject ID, activity label ID and all sensor data variables with
@@ -36,7 +36,7 @@ load_sensor_dataset <- function(dataset_type) {
 # load the feature names which will be used as variable names later
 feature_names <- read.table("dataset/features.txt", stringsAsFactors = F)[,2]
 
-# identifiy columns with mean() and std() in their name as variables with mean values and std.dev.
+# identify columns with mean() and std() in their name as variables with mean values and std.dev.
 # values
 cols_w_mean <- grep("mean\\(\\)", feature_names)
 cols_w_sd <- grep("std\\(\\)", feature_names)
@@ -77,13 +77,8 @@ grouped_data_avgs <- complete_data %>%
                      summarise_each(funs(mean)) %>%
                      arrange(subject, activity)
 
-# save the complete tidy dataset as CSV
+# save the complete tidy dataset as TXT
 write.table(complete_data, file = "complete_data.txt", row.names = F)
 
-# save the grouped averages summary dataset as CSV
+# save the grouped averages summary dataset as TXT
 write.table(grouped_data_avgs, file = "grouped_averages.txt", row.names = F)
-
-
-# df_subset %>% 
-#     group_by(subjectID, activityID) %>% 
-#     summarise_each(funs(mean)) -> df_mean_signals
